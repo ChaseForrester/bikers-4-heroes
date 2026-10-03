@@ -1,5 +1,7 @@
 # Bikers 4 Heroes
 
+![Bikers 4 Heroes — Super Heroes on two wheels](public/og.jpg)
+
 Charity + live event website for the Illawarra motorcycle Super Heroes who raise funds for the i98FM Illawarra Convoy.
 
 Facebook: [facebook.com/bikers4heroes](https://www.facebook.com/bikers4heroes)
