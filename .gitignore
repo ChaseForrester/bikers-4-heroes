@@ -1,0 +1,11 @@
+.verify
+node_modules
+.next
+out
+.env
+.env.local
+.DS_Store
+*.log
+data/site.json
+public/uploads/*
+!public/uploads/.gitkeep
