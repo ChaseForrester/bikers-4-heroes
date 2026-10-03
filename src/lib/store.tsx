@@ -296,14 +296,14 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
 
     const resetToSeed = useCallback(async () => {
         await commit(SEED);
-        if (db) {
-            const batch = writeBatch(db);
-            SEED.events.forEach((e) => batch.set(doc(db, "events", e.id), e));
-            SEED.photos.forEach((p) => batch.set(doc(db, "photos", p.id), p));
-            batch.set(doc(db, "site", "content"), SEED.site);
-            batch.set(doc(db, "site", "donations"), SEED.donations);
-            await batch.commit();
-        }
+        if (!db) return;
+        const firestore = db;
+        const batch = writeBatch(firestore);
+        SEED.events.forEach((e) => batch.set(doc(firestore, "events", e.id), e));
+        SEED.photos.forEach((p) => batch.set(doc(firestore, "photos", p.id), p));
+        batch.set(doc(firestore, "site", "content"), SEED.site);
+        batch.set(doc(firestore, "site", "donations"), SEED.donations);
+        await batch.commit();
     }, [commit]);
 
     const value = useMemo<Store>(
